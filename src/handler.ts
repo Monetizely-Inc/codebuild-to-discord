@@ -38,8 +38,8 @@ export const lambdaHandler: SNSHandler = async (event: SNSEvent) => {
   const formattedMessage = formatMessage(buildEvent);
   await sendToDiscord(formattedMessage);
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify("Message sent to Discord"),
-  };
+  // return {
+  //   statusCode: 200,
+  //   body: JSON.stringify("Message sent to Discord"),
+  // };
 };

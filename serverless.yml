@@ -17,7 +17,6 @@ functions:
   notifyDiscord:
     handler: src/handler.lambdaHandler
     events:
-      - sns: ${self:custom.snsTopicArn}
 
 custom:
   snsTopicArn: arn:aws:sns:us-east-1:123456789012:your-sns-topic

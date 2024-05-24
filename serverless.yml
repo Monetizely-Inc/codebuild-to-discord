@@ -17,8 +17,7 @@ functions:
   notifyDiscord:
     handler: src/handler.lambdaHandler
     events:
-      - sns: ${self:custom.snsTopicArn_fe}
-      - sns: ${self:custom.snsTopicArn_be}
+      ${file(_serverless/snsConfig.js)}
          
 
 custom:

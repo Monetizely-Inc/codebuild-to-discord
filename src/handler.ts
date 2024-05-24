@@ -11,7 +11,7 @@ const QA_TEAM = "1243439335563333673";
 const BACKEND_REPO = "https://github.com/Monetizely-Inc/core-be.git";
 const FRONTEND_REPO = "https://github.com/Monetizely-Inc/core-fe.git";
 
-const formatMessage = (event: Message): string => {
+const formatMessage = (event: Message, logger: string[]): string => {
   const buildId = event.detail["build-id"];
   const status = event.detail["build-status"];
   const projectName = event.detail["project-name"];
@@ -49,23 +49,31 @@ const formatMessage = (event: Message): string => {
   );
 };
 
-const sendToDiscord = async (message: string): Promise<void> => {
+const sendToDiscord = async (
+  message: string,
+  logger: string[]
+): Promise<void> => {
   try {
+    logger.push("Sending message to Discord: " + message);
+    logger.push("Discord Webhook URL: " + DISCORD_WEBHOOK_URL);
+
     await axios.post(DISCORD_WEBHOOK_URL, { content: message });
-    console.log("Message sent to Discord successfully.");
   } catch (error) {
-    console.error("Failed to send message to Discord:", error);
+    logger.push("Failed to send message to Discord: " + JSON.stringify(error));
+    console.error(logger);
   }
 };
 
 export const lambdaHandler: SNSHandler = async (event: SNSEvent) => {
-  console.log("Received event:", JSON.stringify(event, null, 2));
+  const logger = [];
+
+  logger.push("Received event:" + JSON.stringify(event, null, 2));
 
   const snsMessage = event.Records[0].Sns.Message;
   const buildEvent = JSON.parse(snsMessage) as Message;
 
-  const formattedMessage = formatMessage(buildEvent);
-  await sendToDiscord(formattedMessage);
+  const formattedMessage = formatMessage(buildEvent, logger);
+  await sendToDiscord(formattedMessage, logger);
 
   // return {
   //   statusCode: 200,

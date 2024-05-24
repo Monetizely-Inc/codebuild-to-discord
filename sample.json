@@ -1,0 +1,49 @@
+{
+  "account": "908991390875",
+  "detailType": "CodeBuild Build State Change",
+  "region": "us-east-1",
+  "source": "aws.codebuild",
+  "time": "2024-05-24T04:27:08Z",
+  "notificationRuleArn": "arn:aws:codestar-notifications:us-east-1:908991390875:notificationrule/846afba2a275a39f0dcb354e6aaafafe84f45223",
+  "detail": {
+    "build-status": "IN_PROGRESS",
+    "project-name": "dev-monetizely-core-be-build",
+    "build-id": "arn:aws:codebuild:us-east-1:908991390875:build/dev-monetizely-core-be-build:15a0bb68-50ae-4e9c-8c0d-c5aef2ba86e5",
+    "additional-information": {
+      "cache": { "type": "NO_CACHE" },
+      "timeout-in-minutes": 45.0,
+      "build-complete": false,
+      "initiator": "Akhil",
+      "build-start-time": "May 24, 2024 4:27:08 AM",
+      "source": {
+        "report-build-status": false,
+        "location": "https://github.com/Monetizely-Inc/core-be.git",
+        "git-clone-depth": 1.0,
+        "type": "GITHUB",
+        "git-submodules-config": { "fetch-submodules": false }
+      },
+      "source-version": "develop",
+      "artifact": { "location": "" },
+      "environment": {
+        "image": "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
+        "privileged-mode": false,
+        "image-pull-credentials-type": "CODEBUILD",
+        "compute-type": "BUILD_GENERAL1_SMALL",
+        "type": "LINUX_CONTAINER",
+        "environment-variables": []
+      },
+      "project-file-system-locations": [],
+      "logs": {
+        "deep-link": "https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#logsV2:log-groups"
+      },
+      "queued-timeout-in-minutes": 480.0
+    },
+    "current-phase": "SUBMITTED",
+    "current-phase-context": "[]",
+    "version": "1"
+  },
+  "resources": [
+    "arn:aws:codebuild:us-east-1:908991390875:build/dev-monetizely-core-be-build:15a0bb68-50ae-4e9c-8c0d-c5aef2ba86e5"
+  ],
+  "additionalAttributes": {}
+}

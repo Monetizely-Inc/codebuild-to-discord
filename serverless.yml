@@ -17,7 +17,11 @@ functions:
   notifyDiscord:
     handler: src/handler.lambdaHandler
     events:
-      - sns: ${self:custom.snsTopicArn}
+      - sns: ${self:custom.snsTopicArn_fe}
+      - sns: ${self:custom.snsTopicArn_be}
+         
 
 custom:
-  snsTopicArn: arn:aws:sns:us-east-1:908991390875:CodeStarNotifications-monetizely-core-fe-build-af6f1229e22e32a677b8b5a306d20c700450414e
+  snsTopicArn_fe: arn:aws:sns:us-east-1:908991390875:CodeStarNotifications-monetizely-core-fe-build-af6f1229e22e32a677b8b5a306d20c700450414e
+  snsTopicArn_be: arn:aws:sns:us-east-1:908991390875:CodeStarNotifications-monetizely-core-be-build-0daa5a2132afcc333faf4613082c0037a5f21d3b
+
